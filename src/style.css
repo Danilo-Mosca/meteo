@@ -1,0 +1,165 @@
+/* 
+PALETTE COLORI MODALITA' GIORNO:
+  bg-color: rgb(244, 162, 97);
+  panel-color: rgb(231, 111, 81);
+  button: rgb(233, 196, 106);
+PALETTE COLORI MODALITA' NOTTE:
+  bg-color: rgb(42, 157, 143);
+  panel-color: rgb(38, 70, 83);
+  button: rgb(119, 141, 169);
+*/
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Utilities */
+.container {
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+.panel {
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: rgb(231, 111, 81);
+}
+
+/* Generiche  */
+body {
+  line-height: 1;
+  font-family: Inter, sans-serif;
+  background-color: rgb(244, 162, 97);
+  background-image: url("images/image_backgroud_day.webp");
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+main {
+  text-align: center;
+}
+
+/* Informazioni meteo */
+
+.weather-info {
+  min-height: 400px;
+}
+
+.weather-icon {
+  max-width: 60%;
+  transition: opacity 0.5s, translate 1s;
+}
+
+.weather-location {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.weather-temperature {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.suggestion {
+  font-size: 24px;
+  font-weight: 700;
+  transition: scale 1s;
+}
+
+.preset-city {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* inserisco margin e padding specifici per una migliore visualizzazione
+	   degli spazi dei pulsanti nel pannello preset city */
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 8px;
+
+}
+
+/* Pulsanti */
+button {
+  margin: 8px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 16px;
+  background-color: rgb(233, 196, 106);
+}
+
+/* Pannello di inserimento città */
+.insert-city {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+/*	align-items: center;
+	justify-content: space-between;	*/
+
+/* Input box della città */
+input {
+  font-size: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  border: none;
+  flex-grow: 1;
+  /* Imposto questa proprietà che mi permette di allineare l'input box lungo tutta la riga */
+}
+
+.search-city-button {
+  max-width: 18px;
+  max-height: 18px;
+}
+
+/* Effetti dopo il loader */
+
+.js-loading {
+  .weather-icon {
+    opacity: 0;
+    translate: 0 30px;
+  }
+
+  .suggestion {
+    scale: 0;
+  }
+}
+
+/* Colori in caso di modalità notte
+   Grazie alla lettera finale del nome delle icone:
+   d == day, n == night */
+.night-mode {
+  .panel {
+    background-color: rgb(38, 70, 83);
+    color: rgb(255, 255, 255);
+  }
+
+  body {
+    background-color: rgb(42, 157, 143);
+    background-image: url("images/image_backgroud_night.webp");
+  }
+
+  button {
+    background-color: rgb(119, 141, 169);
+    color: rgb(255, 255, 255);
+  }
+}
